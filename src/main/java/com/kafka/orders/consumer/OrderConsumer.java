@@ -9,7 +9,7 @@ import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+ 
 import java.time.Duration;
 import java.util.Collections;
 import java.util.HashMap;
@@ -75,8 +75,8 @@ public class OrderConsumer {
             boolean success = processOrder(order);
             
             if (success) {
-                logger.info("Successfully processed order: orderId={}, product={}, price={:.2f}",
-                        orderId, order.getProduct().toString(), order.getPrice());
+                logger.info("Successfully processed order: orderId={}, product={}, price=${}",
+                        orderId, order.getProduct().toString(), String.format("%.2f", order.getPrice()));
                 
                 // Update aggregation
                 priceAggregator.addPrice(order.getPrice());

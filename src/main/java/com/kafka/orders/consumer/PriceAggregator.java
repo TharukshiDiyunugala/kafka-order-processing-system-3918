@@ -83,9 +83,9 @@ public class PriceAggregator {
     private void logStatistics() {
         logger.info("=== Price Statistics ===");
         logger.info("Orders processed: {}", count.get());
-        logger.info("Running average price: ${:.2f}", runningAverage);
-        logger.info("Min price: ${:.2f}", minPrice);
-        logger.info("Max price: ${:.2f}", maxPrice);
+        logger.info("Running average price: ${}", String.format("%.2f", runningAverage));
+        logger.info("Min price: ${}", String.format("%.2f", minPrice));
+        logger.info("Max price: ${}", String.format("%.2f", maxPrice));
         logger.info("=======================");
     }
     
@@ -95,9 +95,9 @@ public class PriceAggregator {
     public void printFinalStats() {
         logger.info("\n=== FINAL PRICE STATISTICS ===");
         logger.info("Total orders processed: {}", count.get());
-        logger.info("Final running average price: ${:.2f}", runningAverage);
-        logger.info("Minimum price: ${:.2f}", minPrice);
-        logger.info("Maximum price: ${:.2f}", maxPrice);
+        logger.info("Final running average price: ${}", String.format("%.2f", runningAverage));
+        logger.info("Minimum price: ${}", String.format("%.2f", minPrice));
+        logger.info("Maximum price: ${}", String.format("%.2f", maxPrice));
         logger.info("==============================\n");
     }
 }

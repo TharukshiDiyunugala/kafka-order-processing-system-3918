@@ -7,7 +7,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 import org.apache.kafka.clients.producer.RecordMetadata;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
+ 
 import java.util.Random;
 import java.util.concurrent.ExecutionException;
 
@@ -56,8 +56,9 @@ public class OrderProducer {
         
         try {
             RecordMetadata metadata = producer.send(record).get();
-            logger.info("Sent order: orderId={}, product={}, price={:.2f} -> partition={}, offset={}",
-                    order.getOrderId().toString(), order.getProduct().toString(), order.getPrice(),
+            logger.info("Sent order: orderId={}, product={}, price=${} -> partition={}, offset={}",
+                    order.getOrderId().toString(), order.getProduct().toString(), 
+                    String.format("%.2f", order.getPrice()),
                     metadata.partition(), metadata.offset());
         } catch (InterruptedException | ExecutionException e) {
             logger.error("Failed to send order: {}", order.getOrderId().toString(), e);
