@@ -104,7 +104,7 @@ The consumer will:
 - Send permanently failed messages to DLQ
 - Display real-time price statistics every 10 orders
 
-## 📈 Real-time Price Aggregation
+##  Real-time Price Aggregation
 
 The consumer calculates and displays:
 - **Running Average**: Continuously updated average price
