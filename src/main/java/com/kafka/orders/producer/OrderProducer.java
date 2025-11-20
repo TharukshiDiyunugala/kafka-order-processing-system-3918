@@ -57,10 +57,10 @@ public class OrderProducer {
         try {
             RecordMetadata metadata = producer.send(record).get();
             logger.info("Sent order: orderId={}, product={}, price={:.2f} -> partition={}, offset={}",
-                    order.getOrderId(), order.getProduct(), order.getPrice(),
+                    order.getOrderId().toString(), order.getProduct().toString(), order.getPrice(),
                     metadata.partition(), metadata.offset());
         } catch (InterruptedException | ExecutionException e) {
-            logger.error("Failed to send order: {}", order.getOrderId(), e);
+            logger.error("Failed to send order: {}", order.getOrderId().toString(), e);
             Thread.currentThread().interrupt();
         }
     }

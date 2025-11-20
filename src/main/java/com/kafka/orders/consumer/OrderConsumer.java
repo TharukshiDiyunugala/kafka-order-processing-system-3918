@@ -7,7 +7,6 @@ import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.apache.kafka.common.errors.SerializationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -69,7 +68,7 @@ public class OrderConsumer {
      */
     private void processRecord(ConsumerRecord<String, Order> record) {
         Order order = record.value();
-        String orderId = order.getOrderId();
+        String orderId = order.getOrderId().toString();
         
         try {
             // Simulate processing with potential failures
@@ -77,7 +76,7 @@ public class OrderConsumer {
             
             if (success) {
                 logger.info("Successfully processed order: orderId={}, product={}, price={:.2f}",
-                        orderId, order.getProduct(), order.getPrice());
+                        orderId, order.getProduct().toString(), order.getPrice());
                 
                 // Update aggregation
                 priceAggregator.addPrice(order.getPrice());
@@ -100,7 +99,7 @@ public class OrderConsumer {
     private boolean processOrder(Order order) {
         // Simulate random failures (10% failure rate for demonstration)
         if (Math.random() < 0.1) {
-            logger.warn("Simulated temporary failure for order: {}", order.getOrderId());
+            logger.warn("Simulated temporary failure for order: {}", order.getOrderId().toString());
             return false;
         }
         
@@ -147,13 +146,13 @@ public class OrderConsumer {
      */
     private void sendToDLQ(Order order) {
         ProducerRecord<String, Order> dlqRecord = 
-            new ProducerRecord<>(KafkaConfig.DLQ_TOPIC, order.getOrderId(), order);
+            new ProducerRecord<>(KafkaConfig.DLQ_TOPIC, order.getOrderId().toString(), order);
         
         try {
             dlqProducer.send(dlqRecord).get();
-            logger.info("Sent order to DLQ: orderId={}", order.getOrderId());
+            logger.info("Sent order to DLQ: orderId={}", order.getOrderId().toString());
         } catch (Exception e) {
-            logger.error("Failed to send order to DLQ: {}", order.getOrderId(), e);
+            logger.error("Failed to send order to DLQ: {}", order.getOrderId().toString(), e);
         }
     }
     
