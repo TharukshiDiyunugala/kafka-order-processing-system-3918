@@ -1,0 +1,15 @@
+#!/bin/sh
+echo ""
+echo "=================================="
+echo "Maven Wrapper"
+echo "=================================="
+echo "Maven is not installed or wrapper not configured."
+echo ""
+echo "To use this project, please either:"
+echo "1. Install Maven: https://maven.apache.org/download.cgi"
+echo "2. Use an IDE like IntelliJ IDEA or VS Code"
+echo "3. Install Maven via package manager"
+echo ""
+echo "For detailed setup instructions, see SETUP.md"
+echo "=================================="
+exit 1
