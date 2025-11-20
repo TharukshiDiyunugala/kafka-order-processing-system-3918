@@ -9,7 +9,7 @@ A complete Kafka-based order processing system implemented in **Java 21** with *
 - ✅ **Retry Logic**: Automatic retry with exponential backoff for temporary failures
 - ✅ **Dead Letter Queue (DLQ)**: Failed messages are sent to DLQ after max retries
 - ✅ **Docker Support**: Complete Docker Compose setup for Kafka ecosystem
-- ✅ **Java 21 LTS**: Built with the latest Java LTS version
+- ✅ **Java 20**: Built with modern Java (compatible with Java 17+)
 
 ## 🏗️ Architecture
 
@@ -47,8 +47,8 @@ Each order message contains:
 
 ### Prerequisites
 
-- **Java 21** (JDK 21)
-- **Maven 3.8+**
+- **Java 17+** (Java 20 recommended, project uses Java 20)
+- **Maven 3.8+** (or use IntelliJ IDEA which has Maven built-in)
 - **Docker & Docker Compose**
 - **Git**
 

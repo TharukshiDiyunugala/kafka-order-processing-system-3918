@@ -3,9 +3,9 @@
 ## ⚡ Fastest Way to Get Started
 
 ### Prerequisites
-- Java 21 installed ([Download here](https://adoptium.net/temurin/releases/))
+- Java 17+ installed (project uses Java 20) - [Download here](https://adoptium.net/temurin/releases/)
 - Docker Desktop running ([Download here](https://www.docker.com/products/docker-desktop/))
-- Maven installed OR use an IDE
+- Maven installed (see MAVEN_INSTALL.md) OR use IntelliJ IDEA (has Maven built-in)
 
 ### Option 1: Automated Script (Windows)
 
@@ -65,7 +65,8 @@ choco install maven -y
 
 ### Java not installed?
 ```powershell
-choco install openjdk21 -y
+choco install openjdk20 -y
+# Or download from: https://adoptium.net/temurin/releases/
 ```
 
 ### Docker not running?

@@ -2,23 +2,23 @@
 
 ## Prerequisites Installation
 
-### 1. Install Java 21 (JDK 21)
+### 1. Install Java 20 (or Java 17+)
 
 #### Option A: Using Chocolatey (Recommended for Windows)
 ```powershell
 # Install Chocolatey if not already installed
 Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://community.chocolatey.org/install.ps1'))
 
-# Install Java 21
-choco install openjdk21 -y
+# Install Java 20
+choco install openjdk20 -y
 
 # Verify installation
 java -version
 ```
 
 #### Option B: Manual Installation
-1. Download Java 21 from: https://adoptium.net/temurin/releases/
-2. Choose **JDK 21** for Windows x64
+1. Download Java 20 from: https://adoptium.net/temurin/releases/
+2. Choose **JDK 20** (or 21) for Windows x64
 3. Install and add to PATH
 4. Verify: `java -version`
 
@@ -80,7 +80,7 @@ $env:Path = [System.Environment]::GetEnvironmentVariable("Path","Machine")
 ```powershell
 # Check Java
 java -version
-# Should show: openjdk version "21.x.x"
+# Should show: java version "20" or "21" (both work)
 
 # Check Maven
 mvn -version
