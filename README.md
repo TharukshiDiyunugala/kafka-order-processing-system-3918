@@ -2,16 +2,16 @@
 
 A complete Kafka-based order processing system implemented in **Java 21** with **Avro serialization**, featuring real-time price aggregation, retry logic, and Dead Letter Queue (DLQ) support.
 
-## 📋 Features
+##  Features
 
-- ✅ **Avro Serialization**: Schema-based serialization for order messages
-- ✅ **Real-time Aggregation**: Running average calculation of order prices
-- ✅ **Retry Logic**: Automatic retry with exponential backoff for temporary failures
-- ✅ **Dead Letter Queue (DLQ)**: Failed messages are sent to DLQ after max retries
-- ✅ **Docker Support**: Complete Docker Compose setup for Kafka ecosystem
-- ✅ **Java 20**: Built with modern Java (compatible with Java 17+)
+-  **Avro Serialization**: Schema-based serialization for order messages
+-  **Real-time Aggregation**: Running average calculation of order prices
+-  **Retry Logic**: Automatic retry with exponential backoff for temporary failures
+-  **Dead Letter Queue (DLQ)**: Failed messages are sent to DLQ after max retries
+-  **Docker Support**: Complete Docker Compose setup for Kafka ecosystem
+-  **Java 20**: Built with modern Java (compatible with Java 17+)
 
-## 🏗️ Architecture
+##  Architecture
 
 ```
 ┌─────────────┐       ┌──────────────┐       ┌─────────────┐
@@ -32,7 +32,7 @@ A complete Kafka-based order processing system implemented in **Java 21** with *
                       └──────────────┘     (Max retries)
 ```
 
-## 📊 Order Message Schema
+##  Order Message Schema
 
 Each order message contains:
 
@@ -43,7 +43,7 @@ Each order message contains:
 | `price` | float | Product price (randomized between 10-1000) |
 | `timestamp` | long | Order creation timestamp (epoch milliseconds) |
 
-## 🚀 Quick Start
+##  Quick Start
 
 ### Prerequisites
 
@@ -104,7 +104,7 @@ The consumer will:
 - Send permanently failed messages to DLQ
 - Display real-time price statistics every 10 orders
 
-## 📈 Real-time Price Aggregation
+##  Real-time Price Aggregation
 
 The consumer calculates and displays:
 - **Running Average**: Continuously updated average price
@@ -122,7 +122,7 @@ Max price: $987.23
 =======================
 ```
 
-## 🔄 Retry Logic & DLQ
+##  Retry Logic & DLQ
 
 ### Retry Mechanism
 - **Max Retries**: 3 attempts per message
@@ -134,7 +134,7 @@ Max price: $987.23
 - Preserves original message for later analysis
 - Prevents blocking of message processing
 
-## 🖥️ Monitoring
+##  Monitoring
 
 ### Kafka UI (Web Interface)
 Visit `http://localhost:8080` to:
@@ -148,7 +148,7 @@ Application logs are written to:
 - **Console**: Real-time output
 - **File**: `logs/kafka-orders.log`
 
-## 🛠️ Configuration
+##  Configuration
 
 Edit `src/main/java/com/kafka/orders/config/KafkaConfig.java`:
 
@@ -166,7 +166,7 @@ MAX_RETRIES = 3
 RETRY_BACKOFF_MS = 2000
 ```
 
-## 📁 Project Structure
+##  Project Structure
 
 ```
 kafka-order-processing/
@@ -190,7 +190,7 @@ kafka-order-processing/
 └── README.md                            # This file
 ```
 
-## 🧪 Testing
+##  Testing
 
 ### Manual Testing
 
@@ -208,7 +208,7 @@ kafka-order-processing/
 # Navigate to: http://localhost:8080 → Topics → orders-dlq
 ```
 
-## 🔧 Troubleshooting
+##  Troubleshooting
 
 ### Connection Refused
 ```
@@ -228,7 +228,7 @@ Error: Source option 5 is no longer supported
 Solution: Ensure Java 21 is installed: java -version
 ```
 
-## 📚 Technologies Used
+##  Technologies Used
 
 - **Java 21** (LTS)
 - **Apache Kafka 3.6.1**
@@ -238,25 +238,24 @@ Solution: Ensure Java 21 is installed: java -version
 - **Docker Compose**
 - **SLF4J + Logback** (Logging)
 
-## 🎯 Assignment Requirements Met
+##  Assignment Requirements Met
 
-✅ Real-time order message production  
-✅ Avro serialization for all messages  
-✅ Real-time aggregation (running average of prices)  
-✅ Retry logic for temporary failures  
-✅ Dead Letter Queue for permanent failures  
-✅ Live system demonstration  
-✅ Git repository with complete code  
-✅ Independent research and implementation  
+ Real-time order message production  
+ Avro serialization for all messages  
+ Real-time aggregation (running average of prices)  
+ Retry logic for temporary failures  
+ Dead Letter Queue for permanent failures  
+ Live system demonstration  
+ Git repository with complete code  
+ Independent research and implementation  
 
-## 📝 License
+##  License
 
 This project is created for educational purposes as part of a Kafka systems assignment.
 
-## 👨‍💻 Author
+##  Diyunugala D.T.N - EG/2020/3918
 
 Created using Java 21 and modern Kafka practices.
 
 ---
 
-**Happy Streaming! 🚀**
